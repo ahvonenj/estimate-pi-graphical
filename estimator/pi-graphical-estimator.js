@@ -134,7 +134,7 @@ PIE.prototype.generatePoint = function()
 
 	// Calculate distance from the middle of the circle to the generated point
 	// And see if the point is within the circles radius
-	if(v1.distance(v2) <= 100)
+	if(v1.distance(v2) <= Global.circlerad)
 	{
 		this.pointsincircle++;
 	}
