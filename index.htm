@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Estimate PI</title>
+
+		<link rel = "stylesheet" type = "text/css" href = "index.css">
+
+		<script src = "lib/jquery-2.2.2.min.js"></script>
+		<script src = "lib/pixi.min.js"></script>
+		<script src = "lib/chance.min.js"></script>
+		<script src = "lib/sim-0.26.js"></script>
+		<script src = "lib/victor.min.js"></script>
+		<script src = "lib/lerppu.js"></script>
+
+		<script src = "estimator/global.js"></script>
+		<script src = "estimator/circle.js"></script>
+		<script src = "estimator/rectangle.js"></script>
+		<script src = "estimator/point.js"></script>
+		<script src = "estimator/pi-graphical-estimator.js"></script>
+	</head>
+	<body>
+		<div id = "canvaswrapper">
+			<canvas id = "canvas">
+				
+			</canvas>
+		</div>
+		<div id = "resultwrapper">
+			<table id = "resulttable">
+				<tr>
+					<td>Total points:</td>
+					<td id = "totalp">0</td>
+				</tr>
+				<tr>
+					<td>Points in circle:</td>
+					<td id = "circlep">0</td>
+				</tr>
+				<tr>
+					<td>Estimated PI:</td>
+					<td id = "estpi">-</td>
+				</tr>
+				<tr>
+					<td>Math.PI:</td>
+					<td id = "constpi">-</td>
+				</tr>
+				<tr>
+					<td>Estimation throw:</td>
+					<td id = "dpi">-</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script>
+		var pie = new PIE();
+	</script>
+</html>
