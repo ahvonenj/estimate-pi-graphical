@@ -55,10 +55,10 @@ function PIE()
     this.pointtex = this.pointgraphics.generateTexture();
 
 	// Start pointgenerator
-	this.pointgenerator = setInterval(function()
+	/*this.pointgenerator = setInterval(function()
 	{
-		self.generatePoint();
-	}, 50);
+		
+	}, 10);*/
 
 	// Start update and draw loop
 	requestAnimationFrame(function(t) { self.animate(self); });
@@ -88,15 +88,14 @@ PIE.prototype.animate = function(pie)
 // Update method
 PIE.prototype.update = function(dt)
 {
+	var self = this;
+	
 	Lerppu.update(this.t.time);
 
 	this.circle.update(dt);
 	this.rectangle.update(dt);
 
-	for(var i = 0; i < this.points.length; i++)
-	{
-		//this.points[i].update(dt);
-	}
+	self.generatePoint();
 
 	// Output stuff
 	var estimation = ((4 * this.pointsincircle) / this.totalpoints);
