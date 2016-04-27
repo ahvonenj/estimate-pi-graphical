@@ -119,8 +119,8 @@ PIE.prototype.generatePoint = function()
 {
 	var self = this;
 
-	var rx = this.random.uniform(49, 249); // Generate uniform x value for poínt
-	var ry = this.random.uniform(49, 249); // Generate uniform y value for poínt
+	var rx = this.random.uniform(50, 250); // Generate uniform x value for poínt
+	var ry = this.random.uniform(50, 250); // Generate uniform y value for poínt
 
 	// Make a new point
 	var point = new Point(rx, ry, new PIXI.Sprite(self.pointtex), this);
