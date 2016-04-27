@@ -1,4 +1,4 @@
-function Point(x, y, estimator)
+function Point(x, y, sprite, estimator)
 {
 	var self = this;
 
@@ -7,14 +7,12 @@ function Point(x, y, estimator)
 	this.x = x;
 	this.y = y;
 
-	this.g = new PIXI.Graphics();
-	this.g.clear();
-    this.g.lineStyle(1, 0x000000, 0.7);
-    this.g.beginFill(0x000000, 0.7);
-    this.g.drawCircle(this.x, this.y, 1);
-    this.g.endFill();
+	this.sprite = sprite;
 
-    this.estimator.stage.addChild(this.g);
+	this.sprite.position.x = this.x;
+	this.sprite.position.y = this.y;
+
+    this.estimator.stage.addChild(this.sprite);
 }
 
 Point.prototype.update = function(dt)
