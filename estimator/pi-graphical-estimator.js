@@ -48,8 +48,8 @@ function PIE()
 
 	this.pointgraphics = new PIXI.Graphics();
 	this.pointgraphics.clear();
-    this.pointgraphics.lineStyle(1, 0x000000, 0.7);
-    this.pointgraphics.beginFill(0x000000, 0.7);
+    this.pointgraphics.lineStyle(1, 0x000000, 1);
+    this.pointgraphics.beginFill(0x000000, 1);
     this.pointgraphics.drawCircle(this.x, this.y, 1);
     this.pointgraphics.endFill();
     this.pointtex = this.pointgraphics.generateTexture();
@@ -111,6 +111,16 @@ PIE.prototype.update = function(dt)
 // Render everything
 PIE.prototype.render = function()
 {
+	// Make circle and rectangle draw on top of everything
+	if(this.stage.children.length > 1)
+	{
+		this.stage.removeChild(this.circle.g);
+		this.stage.addChildAt(this.circle.g, this.stage.children.length - 1);
+
+		this.stage.removeChild(this.rectangle.g);
+		this.stage.addChildAt(this.rectangle.g, this.stage.children.length - 1);
+	}
+
 	this.renderer.render(this.stage);
 }
 
@@ -124,7 +134,7 @@ PIE.prototype.generatePoint = function()
 
 	// Make a new point
 	var point = new Point(rx, ry, new PIXI.Sprite(self.pointtex), this);
-	//this.points.push(point);
+	this.points.push(point);
 
 	// Increase total points
 	this.totalpoints++;
@@ -150,6 +160,14 @@ PIE.prototype.generatePoint = function()
 
 		this.lastthrow = dpi;
 	}
+
+	/*if(this.totalpoints % 1000 === 0 && this.totalpoints > 0)
+	{
+		for(var i = 0; i < this.points.length; i++)
+		{
+			this.points[i].sprite.alpha -= 0.2;
+		}
+	}*/
 }
 
 PIE.prototype.poisson = function()
