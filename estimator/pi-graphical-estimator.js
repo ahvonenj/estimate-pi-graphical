@@ -46,6 +46,14 @@ function PIE()
 	this.rectangle = new Rectangle(this);
 	this.circle = new Circle(this);
 
+	this.pointgraphics = new PIXI.Graphics();
+	this.pointgraphics.clear();
+    this.pointgraphics.lineStyle(1, 0x000000, 0.7);
+    this.pointgraphics.beginFill(0x000000, 0.7);
+    this.pointgraphics.drawCircle(this.x, this.y, 1);
+    this.pointgraphics.endFill();
+    this.pointtex = this.pointgraphics.generateTexture();
+
 	// Start pointgenerator
 	this.pointgenerator = setInterval(function()
 	{
@@ -115,9 +123,9 @@ PIE.prototype.generatePoint = function()
 	var rx = this.random.uniform(50, 250); // Generate uniform x value for poínt
 	var ry = this.random.uniform(50, 250); // Generate uniform y value for poínt
 
-	// Make a new point and add it to points list
-	var point = new Point(rx, ry, this);
-	this.points.push(point);
+	// Make a new point
+	var point = new Point(rx, ry, new PIXI.Sprite(self.pointtex), this);
+	//this.points.push(point);
 
 	// Increase total points
 	this.totalpoints++;
