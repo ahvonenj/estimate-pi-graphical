@@ -77,7 +77,7 @@ body
 	position: absolute;
 	left: calc(15px + 300px + 15px);
 	top: 15px;
-	width: 500px;
+	width: 700px;
 	height: auto;
 	border: 1px solid black;
 }

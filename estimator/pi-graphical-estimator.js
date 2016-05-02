@@ -48,11 +48,11 @@ function PIE()
 
 	this.pointgraphics = new PIXI.Graphics();
 	this.pointgraphics.clear();
-    this.pointgraphics.lineStyle(1, 0x000000, 1);
-    this.pointgraphics.beginFill(0x000000, 1);
-    this.pointgraphics.drawCircle(this.x, this.y, 1);
-    this.pointgraphics.endFill();
-    this.pointtex = this.pointgraphics.generateTexture();
+	this.pointgraphics.lineStyle(1, 0x000000, 1);
+	this.pointgraphics.beginFill(0x000000, 1);
+	this.pointgraphics.drawCircle(this.x, this.y, 1);
+	this.pointgraphics.endFill();
+	this.pointtex = this.pointgraphics.generateTexture();
 
 	this.checkpoint = 0;
 
@@ -72,7 +72,7 @@ PIE.prototype.animate = function(pie)
 	while(pie.t.acc >= pie.t.step) 
 	{
 		pie.t.acc -= pie.t.step;
-	    	pie.t.time += pie.t.step;
+		pie.t.time += pie.t.step;
 
 		pie.update(pie.t.dt);
 	}
@@ -181,8 +181,8 @@ PIE.prototype.poisson = function()
 	 
 	do 
 	{
-	    k++;
-	    p *= Math.random();
+		k++;
+		p *= Math.random();
 	} 
 	while (p > L);
 	 
