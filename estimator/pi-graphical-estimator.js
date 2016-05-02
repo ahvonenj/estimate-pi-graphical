@@ -72,6 +72,7 @@ PIE.prototype.animate = function(pie)
 	while(pie.t.acc >= pie.t.step) 
 	{
 		pie.t.acc -= pie.t.step;
+		pie.t.time += pie.t.step;
 
 		pie.update(pie.t.dt);
 	}
