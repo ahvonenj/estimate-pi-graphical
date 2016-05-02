@@ -10,6 +10,7 @@
 		<script src = "lib/chance.min.js"></script>
 		<script src = "lib/sim-0.26.js"></script>
 		<script src = "lib/victor.min.js"></script>
+		<script src = "lib/chart.js"></script>
 		<script src = "lib/lerppu.js"></script>
 
 		<script src = "estimator/global.js"></script>
@@ -23,6 +24,9 @@
 			<canvas id = "canvas">
 				
 			</canvas>
+		</div>
+		<div id = "graphwrapper">
+			<canvas id="pie-graph"></canvas>
 		</div>
 		<div id = "resultwrapper">
 			<table id = "resulttable">
@@ -43,13 +47,38 @@
 					<td id = "constpi">-</td>
 				</tr>
 				<tr>
-					<td>Estimation throw:</td>
+					<td>Estimation error:</td>
 					<td id = "dpi">-</td>
 				</tr>
 			</table>
 		</div>
 	</body>
 	<script>
+		var ctx = document.getElementById("pie-graph");
+
+		var visdata = 
+		{
+	        labels: [],
+	        datasets: 
+	        [{
+	            label: 'Error',
+	            data: []
+	        }]
+    	}
+
+		var vischart = new Chart(ctx, 
+		{
+		    type: 'line',
+		    data: visdata
+		});
+
+		function UpdateVisdata(newdata)
+		{
+			vischart.data.labels = newdata.labels;
+			vischart.data.datasets[0].data = newdata.datasets[0].data;
+			vischart.update();
+		}
+
 		var pie = new PIE();
 	</script>
 </html>

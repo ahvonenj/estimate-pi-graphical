@@ -71,3 +71,19 @@ body
 {
 	width: 175px;
 }
+
+#graphwrapper
+{
+	position: absolute;
+	left: calc(15px + 300px + 15px);
+	top: 15px;
+	width: 500px;
+	height: auto;
+	border: 1px solid black;
+}
+
+#pie-graph
+{
+	width: 100%;
+	height: 100%;
+}

@@ -37,7 +37,7 @@ function PIE()
 	this.constpioutput = document.querySelector('#constpi');
 	this.dpioutput = document.querySelector('#dpi');
 
-	// Point related varaibles
+	// Point related variables
 	this.points = [];
 	this.pointsincircle = 0;
 	this.totalpoints = 0;
@@ -54,11 +54,7 @@ function PIE()
     this.pointgraphics.endFill();
     this.pointtex = this.pointgraphics.generateTexture();
 
-	// Start pointgenerator
-	/*this.pointgenerator = setInterval(function()
-	{
-		
-	}, 10);*/
+	this.checkpoint = 0;
 
 	// Start update and draw loop
 	requestAnimationFrame(function(t) { self.animate(self); });
@@ -155,9 +151,15 @@ PIE.prototype.generatePoint = function()
 
 	if(this.totalpoints % 200 === 0 && this.totalpoints > 0)
 	{
-		$('#resulttable').append('<tr><td>Throw after ' + this.totalpoints + 
+		$('#resulttable').append('<tr><td>Error after ' + this.totalpoints + 
 		':</td><td>' + dpi + '</td></tr>');
 
+		var newvisdata = visdata;
+		newvisdata.labels.push(this.totalpoints);
+		newvisdata.datasets[0].data.push(dpi);
+		UpdateVisdata(newvisdata);
+
+		this.checkpoint++;
 		this.lastthrow = dpi;
 	}
 
