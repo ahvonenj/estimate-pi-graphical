@@ -14,6 +14,7 @@ A graphical PI estimator that relies on random, even distribution of points insi
 
 ![](http://puu.sh/oDGUR/56adfc20b0.png)
 
-## Stress test (© MatMat Holdings)
+## Stress test
 
 ![](https://i.imgur.com/iqwRWnI.png)
+(© MatMat Holdings)
