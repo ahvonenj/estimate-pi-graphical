@@ -155,7 +155,7 @@ PIE.prototype.generatePoint = function()
 		':</td><td>' + dpi + '</td></tr>');
 
 		var newvisdata = visdata;
-		newvisdata.labels.push(this.checkpoint);
+		newvisdata.labels.push(this.totalpoints);
 		newvisdata.datasets[0].data.push(dpi);
 		UpdateVisdata(newvisdata);
 
