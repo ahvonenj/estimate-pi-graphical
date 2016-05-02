@@ -14,7 +14,7 @@ function Point(x, y, sprite, estimator)
 
 	this.sprite.anchor = new PIXI.Point(0.5, 0.5);
 
-    this.estimator.stage.addChild(this.sprite);
+	this.estimator.stage.addChild(this.sprite);
 }
 
 Point.prototype.update = function(dt)
