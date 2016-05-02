@@ -9,3 +9,7 @@ A graphical PI estimator that relies on random, even distribution of points insi
 ## Version 1
 
 ![](http://puu.sh/oxJ4v/d9908fa61a.png)
+
+## Pretty accurate!
+
+![](http://puu.sh/oDGUR/56adfc20b0.png)
